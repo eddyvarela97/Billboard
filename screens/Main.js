@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, TextInput} from 'react-native';
+import { Button, TextInput, Alert } from 'react-native';
 // import TextInputComponent from '../components/TextInputComponent';
 import ModalComponent from '../components/ModalComponent';
 
@@ -21,7 +21,7 @@ class Main extends Component {
           placeholder="Write your message"
           value={message}
           onChangeText={(e) => this.updateMessage(e)}></TextInput>
-        <Button title="Press here" onPress={this.showModal}></Button>
+        <Button title="Press here" onPress={this.makeBillboard}></Button>
         <ModalComponent
           modalVisible={modalVisible}
           onClose={this.showModal}
@@ -30,11 +30,21 @@ class Main extends Component {
     );
   }
 
+  makeBillboard = () => {
+    if(this.state.message != null && this.state.message != ''){
+    this.showModal();
+    }else{
+      Alert.alert('Write something first')
+    }
+  }
+
   showModal = () => {
     this.setState({
       modalVisible: !this.state.modalVisible,
     });
   };
+
+
 
   updateMessage(messageValue) {
     this.setState({
