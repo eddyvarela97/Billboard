@@ -32,7 +32,8 @@ class Main extends Component {
               <TextInput
                 placeholder="Write your message"
                 value={message}
-                onChangeText={(e) => this.updateMessage(e)}></TextInput>
+                onChangeText={(e) => this.updateMessage(e)}
+                onSubmitEditing={this.makeBillboard}></TextInput>
                 </View>
               <View>
                 <Button title="Erase" onPress={this.eraseMessage}></Button>
@@ -57,7 +58,7 @@ class Main extends Component {
     if (this.state.message != null && this.state.message != '') {
       this.showModal();
     } else {
-      Alert.alert('Write something first');
+      Alert.alert('Write something first!');
     }
   };
 
