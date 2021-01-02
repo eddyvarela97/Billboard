@@ -3,6 +3,7 @@ import {Alert, Button, StyleSheet, Text, TextInput, View} from 'react-native';
 // import TextInputComponent from '../components/TextInputComponent';
 import ModalComponent from '../components/ModalComponent';
 import {PRIMARY, WHITE, LIGHTER, LIGHT, DARK, BLACK} from '../lib/constants';
+import Orientation from 'react-native-orientation';
 
 class Main extends Component {
   constructor(props) {
@@ -12,6 +13,10 @@ class Main extends Component {
       modalVisible: false,
       message: null,
     };
+  }
+
+  componentDidUpdate(){
+    this.state.modalVisible? Orientation.lockToLandscape() : Orientation.lockToPortrait();
   }
 
   render() {

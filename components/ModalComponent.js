@@ -6,6 +6,10 @@ class ModalComponent extends Component {
     super(props);
   }
 
+  componentDidMount(){
+    
+  }
+
   render() {
     if (!this.props.modalVisible) {
       return null;
